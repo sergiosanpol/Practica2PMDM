@@ -15,4 +15,11 @@
     <string name="et_fechaNacimiento">Fecha Nacimiento (dd/mm/aaaa)</string>
     <string name="btn_validar">Validar</string>
     <string name="btn_volver">Volver</string>
+
+    /* Activity de apuestas */
+    <string name="tv_apuestas">Apuestas</string>
+    <string name="cb_futbol">Fútbol</string>
+    <string name="cb_tenis">Tenis</string>
+    <string name="cb_balonmano">Balonmano</string>
+    <string name="cb_baloncesto">Baloncesto</string>
 </resources>
