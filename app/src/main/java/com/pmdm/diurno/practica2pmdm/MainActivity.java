@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,11 +13,17 @@ public class MainActivity extends AppCompatActivity {
      * Código para el acceso al registro
      */
     public static final int CODIGO_REGISTRO = 1;
+    /**
+     * Código para el acceso a las apuestas
+     */
+    public static final int CODIGO_APUESTA = 2;
 
     /**
      * Variable para saber si estamos registrados o no. En onCreate() la ponemos a false
      */
     private boolean registrado;
+
+    private TextView apuesta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         registrado = false;
+        apuesta = (TextView) findViewById(R.id.tv_apuestaMarcada);
     }
 
     /**
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirApuestas(View v){
         if(registrado) {
-            Toast.makeText(this, "Apuestas", Toast.LENGTH_LONG).show();
+            startActivityForResult(new Intent(this, ApuestasActivity.class), CODIGO_APUESTA);
         }else{
             Toast.makeText(this, "No registrado", Toast.LENGTH_LONG).show();
         }
@@ -63,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == CODIGO_REGISTRO && resultCode == RESULT_OK){
             //La variable registro se pone a true indicando que ya nos hemos registrado
             registrado = true;
+        }else if(requestCode == CODIGO_APUESTA && resultCode == RESULT_OK){
+            if(apuesta.getVisibility() ==  View.GONE){
+                apuesta.setVisibility(View.VISIBLE);
+            }
+
+            apuesta.setText("Apuesta marcada: " + data.getStringExtra("APUESTA"));
         }
     }
 }

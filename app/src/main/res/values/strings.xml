@@ -7,6 +7,7 @@
     <string name="btn_apuestas">Apuestas</string>
     <string name="btn_ajustes">Ajustes</string>
     <string name="btn_sorteo">Sorteo</string>
+    <string name="apuesta_marcada">Apuesta marcada: </string>
 
     /* Activity de registro */
     <string name="tv_registro">Registro</string>
@@ -22,4 +23,5 @@
     <string name="cb_tenis">Tenis</string>
     <string name="cb_balonmano">Balonmano</string>
     <string name="cb_baloncesto">Baloncesto</string>
+    <string name="btn_aceptar">Aceptar</string>
 </resources>

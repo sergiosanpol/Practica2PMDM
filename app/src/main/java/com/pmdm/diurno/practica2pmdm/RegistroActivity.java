@@ -26,7 +26,6 @@ public class RegistroActivity extends AppCompatActivity implements DatePickerDia
         email = (EditText) findViewById(R.id.et_email);
         fechaNacimiento = (EditText) findViewById(R.id.et_fechaNacimiento);
         fechaNacimiento.setFocusableInTouchMode(false);
-
     }
 
     /**
