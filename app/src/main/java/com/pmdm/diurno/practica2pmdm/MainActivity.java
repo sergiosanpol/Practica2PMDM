@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void abrirAjustes(View v){
+        startActivity(new Intent(this, AjustesActivity.class));
+    }
+
     /**
      * Método para procesar las respuestas devueltas por otras activitys
      * @param requestCode
