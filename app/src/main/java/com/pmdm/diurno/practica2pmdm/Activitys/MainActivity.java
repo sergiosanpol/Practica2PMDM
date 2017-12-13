@@ -1,12 +1,19 @@
-package com.pmdm.diurno.practica2pmdm;
+package com.pmdm.diurno.practica2pmdm.Activitys;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pmdm.diurno.practica2pmdm.R;
+
+/**
+ * Clase principal de la aplicación
+ */
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -24,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean registrado;
 
     private TextView apuesta;
+    public static String apuestaMarcada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         if(!registrado){
             startActivityForResult(new Intent(this, RegistroActivity.class), CODIGO_REGISTRO);
         }else{
-            Toast.makeText(this, "Ya se encuentra registrado", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getText(R.string.toast_Registrado), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -55,12 +63,23 @@ public class MainActivity extends AppCompatActivity {
         if(registrado) {
             startActivityForResult(new Intent(this, ApuestasActivity.class), CODIGO_APUESTA);
         }else{
-            Toast.makeText(this, "No registrado", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getText(R.string.toast_No_Registrado), Toast.LENGTH_LONG).show();
         }
     }
 
+    /**
+     * Método que responde al botón Ajustes. Podremos acceder si se ha seleccionado ya la apuesta
+     * @param v
+     */
     public void abrirAjustes(View v){
-        startActivity(new Intent(this, AjustesActivity.class));
+        if(apuestaMarcada != null) {
+            //Le pasamos la información sobre la apuesta marcada
+            Intent ajustes = new Intent(this, AjustesActivity.class);
+            ajustes.putExtra("APUESTA", apuestaMarcada);
+            startActivity(ajustes);
+        }else{
+            Toast.makeText(this, getResources().getText(R.string.toast_Marcar_apuestas), Toast.LENGTH_LONG).show();
+        }
     }
 
     /**
@@ -75,12 +94,45 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == CODIGO_REGISTRO && resultCode == RESULT_OK){
             //La variable registro se pone a true indicando que ya nos hemos registrado
             registrado = true;
+        //Cuando accedemos a la apuesta y nos devuelve un resultado OK
         }else if(requestCode == CODIGO_APUESTA && resultCode == RESULT_OK){
+            //Apuesta está oculto al inicio. Si no ha cambiado de visibilidad se le cambia a visible
             if(apuesta.getVisibility() ==  View.GONE){
                 apuesta.setVisibility(View.VISIBLE);
             }
 
-            apuesta.setText("Apuesta marcada: " + data.getStringExtra("APUESTA"));
+            //Recogemos el dato devuelto
+            apuestaMarcada = data.getStringExtra("APUESTA");
+            //Mostramos la apuesta realizada en la pantalla principal
+            apuesta.setText(getResources().getText(R.string.apuesta_marcada) + apuestaMarcada);
         }
+    }
+
+    /**
+     * Método para crear el menu del AppBar
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        return true;
+    }
+
+    /**
+     * Método para dar funcinalidad a los botones del menú
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.item_ayuda){
+            startActivity(new Intent(this, AyudaActivity.class));
+        }else if(id == R.id.item_acercaDe){
+            startActivity(new Intent(this, AcercaDeActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,4 +1,4 @@
-package com.pmdm.diurno.practica2pmdm;
+package com.pmdm.diurno.practica2pmdm.Activitys;
 
 import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.pmdm.diurno.practica2pmdm.R;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * Clase que corresponde a la vista del Registro
+ */
 public class RegistroActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     private EditText nombre, email, fechaNacimiento;
@@ -69,7 +74,7 @@ public class RegistroActivity extends AppCompatActivity implements DatePickerDia
     public void validar(View v){
         //Se comprueba que los campos estén rellenos, sino muestra un error
         if(nombre.getText().toString().isEmpty() || email.getText().toString().isEmpty() || fechaNacimiento.getText().toString().isEmpty()){
-            Toast.makeText(this, "Falan datos por rellenar", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getText(R.string.toast_Falan_datos_por_rellenar), Toast.LENGTH_LONG).show();
         }else{
             //Se comprueba que sea mayor de edad. Si es mayor queda registrado, sino muestra error y no avanza
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -79,11 +84,11 @@ public class RegistroActivity extends AppCompatActivity implements DatePickerDia
 
                 //Si es mayor de edad quedará registrado y devolverá al MainActivity que el resultado ha sido OK
                 if(mayoriaDeEdad(nacimiento)) {
-                    Toast.makeText(this, "Quedas registrado", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getResources().getText(R.string.toast_Quedas_registrado), Toast.LENGTH_LONG).show();
                     setResult(RESULT_OK);
                     finish();
                 }else{
-                    Toast.makeText(this, "Debes ser mayor de edad para poder registrarte", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getResources().getText(R.string.toast_mayor_de_edad), Toast.LENGTH_LONG).show();
                 }
             } catch (ParseException e) {
                 e.printStackTrace();

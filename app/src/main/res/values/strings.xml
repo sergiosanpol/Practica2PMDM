@@ -8,6 +8,9 @@
     <string name="btn_ajustes">Ajustes</string>
     <string name="btn_sorteo">Sorteo</string>
     <string name="apuesta_marcada">Apuesta marcada: </string>
+    <string name="toast_Marcar_apuestas">Debes marcar antes el tipo de apuesta</string>
+    <string name="toast_No_Registrado">No se ha registrado todavía</string>
+    <string name="toast_Registrado">Ya se encuentra registrado</string>
 
     /* Activity de registro */
     <string name="tv_registro">Registro</string>
@@ -16,6 +19,9 @@
     <string name="et_fechaNacimiento">Fecha Nacimiento (dd/mm/aaaa)</string>
     <string name="btn_validar">Validar</string>
     <string name="btn_volver">Volver</string>
+    <string name="toast_Falan_datos_por_rellenar">Falan datos por rellenar</string>
+    <string name="toast_Quedas_registrado">Quedas registrado</string>
+    <string name="toast_mayor_de_edad">Debes ser mayor de edad para poder registrarte</string>
 
     /* Activity de apuestas */
     <string name="tv_apuestas">Apuestas</string>
@@ -24,4 +30,40 @@
     <string name="cb_balonmano">Balonmano</string>
     <string name="cb_baloncesto">Baloncesto</string>
     <string name="btn_aceptar">Aceptar</string>
+    <string name="toast_Debes_seleccionar_una_apuesta">Debes seleccionar una apuesta</string>
+    <string name="toast_Apuesta_guardada">Apuesta guardada</string>
+    <string name="toast_Mas_de_una_apuestas">La versión Lite sólo admite un tipo de apuesta. Compra nuestra versión de Pago</string>
+
+    /* Fragment de dinero */
+    <string name="tv_dineroApostar">Dinero a apostar</string>
+
+    /* Activity Ajustes */
+    <string name="btn_guardar">Guardar</string>
+    <string name="toast_Elige_tu_Apuesta">Elige tu Apuesta</string>
+    <string name="toast_Elige_tu_combinación_ganadora">Elige tu combinación ganadora</string>
+    <string name="toast_Combinacion_numero">Error, cada combinación debe ser entre 0 y 300</string>
+    <string name="toast_Ajustes_guardado">Ajustes guardado</string>
+    <string name="toast_NumberFormatException">Escriba la combinación</string>
+
+    /*Activity ayuda */
+    <string name="text_ayuda">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lectus augue.
+        Donec id auctor ex. Cras libero turpis, vestibulum ac blandit id, convallis id elit.
+        Etiam eget urna laoreet, consectetur eros in, venenatis arcu.
+        Ut ligula ante, tempor sed sodales id, dictum eu arcu. Curabitur id urna magna.
+        Duis imperdiet, ex in egestas dignissim, eros magna rhoncus magna, at posuere libero metus a ligula.
+    </string>
+
+    /* Activity Acerca De */
+    <string name="tv_acercaDe">Acerca de</string>
+    <string name="tv_autor">Autor: Sergio Sánchez Polaino</string>
+    <string name="tv_anno">Año: 2017</string>
+
+    /* Menu principal */
+    <string name="item_acercaDe">Acerca de</string>
+    <string name="item_ayuda">Ayuda</string>
+    
+    /* Items */
+    <string name="item_dinero">Dinero</string>
+    <string name="item_combinaciones">Combinaciones</string>
 </resources>

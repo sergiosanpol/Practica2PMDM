@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Practice 2 PMDM</string>
+
+    /* Ventana principal */
+    <string name="tituloApuestas">Online bets</string>
+    <string name="btn_registro">Register</string>
+    <string name="btn_apuestas">Bets</string>
+    <string name="btn_ajustes">Settings</string>
+    <string name="btn_sorteo">Draw</string>
+    <string name="apuesta_marcada">Marked bet: </string>
+    <string name="toast_Marcar_apuestas">You must mark the type of bet</string>
+    <string name="toast_No_Registrado">Not registered yet</string>
+    <string name="toast_Registrado">You are already registered</string>
+
+    /* Activity de registro */
+    <string name="tv_registro">Registry</string>
+    <string name="et_nombre">Name</string>
+    <string name="et_email">Email</string>
+    <string name="et_fechaNacimiento">Birthdate (dd/mm/aaaa)</string>
+    <string name="btn_validar">Validate</string>
+    <string name="btn_volver">Back</string>
+    <string name="toast_Falan_datos_por_rellenar">Missing data</string>
+    <string name="toast_Quedas_registrado">Registered</string>
+    <string name="toast_mayor_de_edad">You must be of legal age</string>
+
+    /* Activity de apuestas */
+    <string name="tv_apuestas">Bettings</string>
+    <string name="cb_futbol">Football</string>
+    <string name="cb_tenis">Tennis</string>
+    <string name="cb_balonmano">Handball</string>
+    <string name="cb_baloncesto">Basketball</string>
+    <string name="btn_aceptar">Ok</string>
+    <string name="toast_Debes_seleccionar_una_apuesta">You must select a bet</string>
+    <string name="toast_Apuesta_guardada">Bet saved</string>
+    <string name="toast_Mas_de_una_apuestas">The Lite version only supports one type of bet. Buy our Premium version</string>
+
+    /* Fragment de dinero */
+    <string name="tv_dineroApostar">Money to bet</string>
+
+    /* Activity Ajustes */
+    <string name="btn_guardar">Save</string>
+    <string name="toast_Elige_tu_Apuesta">Choose your bet</string>
+    <string name="toast_Elige_tu_combinación_ganadora">Choose your combination</string>
+    <string name="toast_Combinacion_numero">Error, each combination must be between 0 and 300</string>
+    <string name="toast_Ajustes_guardado">Saved settings</string>
+    <string name="toast_NumberFormatException">Write the combination</string>
+
+    /*Activity ayuda */
+    <string name="text_ayuda">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lectus augue.
+        Donec id auctor ex. Cras libero turpis, vestibulum ac blandit id, convallis id elit.
+        Etiam eget urna laoreet, consectetur eros in, venenatis arcu.
+        Ut ligula ante, tempor sed sodales id, dictum eu arcu. Curabitur id urna magna.
+        Duis imperdiet, ex in egestas dignissim, eros magna rhoncus magna, at posuere libero metus a ligula.
+    </string>
+
+    /* Activity Acerca De */
+    <string name="tv_acercaDe">About</string>
+    <string name="tv_autor">Author: Sergio Sánchez Polaino</string>
+    <string name="tv_anno">Year: 2017</string>
+
+    /* Menu principal */
+    <string name="item_acercaDe">About</string>
+    <string name="item_ayuda">Help</string>
+
+    /* Items */
+    <string name="item_dinero">Money</string>
+    <string name="item_combinaciones">Combinations</string>
+
+</resources>

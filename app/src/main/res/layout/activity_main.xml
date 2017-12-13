@@ -7,7 +7,7 @@
     android:layout_margin="20dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.pmdm.diurno.practica2pmdm.MainActivity">
+    tools:context="com.pmdm.diurno.practica2pmdm.Activitys.MainActivity">
 
     <TextView
         android:id="@+id/tv_tituloApuestas"
