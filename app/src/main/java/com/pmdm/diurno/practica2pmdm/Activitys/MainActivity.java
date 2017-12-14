@@ -135,4 +135,35 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Método para salvar el estado
+     * @param outState
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean("REGISTRADO", registrado);
+        outState.putString("APUESTA", apuesta.getText().toString());
+        outState.putString("APUESTA_MARCADA", apuestaMarcada);
+    }
+
+    /**
+     * Método para restaurar el estado
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        registrado = savedInstanceState.getBoolean("REGISTRADO");
+        apuesta.setText(savedInstanceState.getString("APUESTA"));
+        apuestaMarcada = savedInstanceState.getString("APUESTA_MARCADA");
+
+        //Si ya se ha escogido una apuesta se muestra la vista
+        if(!apuesta.getText().toString().isEmpty()){
+            apuesta.setVisibility(View.VISIBLE);
+        }
+    }
 }
