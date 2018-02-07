@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/tituloRegistro">
+
+        <EditTextPreference
+            android:dialogTitle="@string/dialogoNombre"
+            android:hint="@string/et_nombre"
+            android:key="nombre"
+            android:summary="@string/sumarioNombre"
+            android:title="@string/tituloNombre" />
+
+        <EditTextPreference
+            android:dialogTitle="@string/dialogoEmail"
+            android:hint="@string/et_email"
+            android:key="email"
+            android:summary="@string/sumarioEmail"
+            android:title="@string/tituloEmail" />
+
+        <EditTextPreference
+            android:dialogTitle="@string/dialogoNacimiento"
+            android:hint="@string/et_fechaNacimiento"
+            android:key="nacimiento"
+            android:summary="@string/sumarioNacimiento"
+            android:title="@string/tituloNacimiento" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/tituloDeportePreferencia">
+        <ListPreference
+            android:defaultValue="@string/ningunDeporte"
+            android:entries="@array/deportes"
+            android:entryValues="@array/deportes"
+            android:key="deporte"
+            android:summary="@string/sumarioDeporte"
+            android:title="@string/tituloDeporte" />
+    </PreferenceCategory>
+</PreferenceScreen>

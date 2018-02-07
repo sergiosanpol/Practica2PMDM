@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="deportes">
+        <item>@string/cb_futbol</item>
+        <item>@string/cb_tenis</item>
+        <item>@string/cb_baloncesto</item>
+        <item>@string/cb_balonmano</item>
+        <item>@string/ningunDeporte</item>
+    </string-array>
+</resources>

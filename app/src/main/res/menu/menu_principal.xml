@@ -7,6 +7,13 @@
         android:icon="@android:drawable/ic_menu_help"
         android:title="@string/item_ayuda"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/item_preferencias"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/preferencias" />
+
+
     <item
         android:id="@+id/item_acercaDe"
         android:title="@string/item_acercaDe" />

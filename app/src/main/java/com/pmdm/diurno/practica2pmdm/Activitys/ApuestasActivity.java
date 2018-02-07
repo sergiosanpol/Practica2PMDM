@@ -1,7 +1,9 @@
 package com.pmdm.diurno.practica2pmdm.Activitys;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,7 @@ public class ApuestasActivity extends AppCompatActivity {
     private CheckBox futbol, tenis, baloncesto, balonmano;
     //Este array es simplemente para ahorrar comprobaciones if o case
     private CheckBox[] checkBoxes = null;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,20 @@ public class ApuestasActivity extends AppCompatActivity {
 
         //Méto todos los checkBox en el array
         checkBoxes = new CheckBox[]{futbol, tenis, baloncesto, balonmano};
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String deporte;
+        deporte = preferences.getString("deporte", "");
+
+        if(getResources().getText(R.string.cb_futbol).equals(deporte)){
+            futbol.setChecked(true);
+        }else if(getResources().getText(R.string.cb_tenis).equals(deporte)){
+            tenis.setChecked(true);
+        }else if(getResources().getText(R.string.cb_baloncesto).equals(deporte)){
+            baloncesto.setChecked(true);
+        }else if(getResources().getText(R.string.cb_balonmano).equals(deporte)){
+            balonmano.setChecked(true);
+        }
     }
 
     /**

@@ -1,6 +1,8 @@
 package com.pmdm.diurno.practica2pmdm.Activitys;
 
 import android.app.DatePickerDialog;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,10 +29,23 @@ public class RegistroActivity extends AppCompatActivity implements DatePickerDia
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        //Variables locales
+        SharedPreferences preferences;
+        String nombrePre, emailPre, nacimeintoPre;
+
         nombre = (EditText) findViewById(R.id.et_nombre);
         email = (EditText) findViewById(R.id.et_email);
         fechaNacimiento = (EditText) findViewById(R.id.et_fechaNacimiento);
         fechaNacimiento.setFocusableInTouchMode(false);
+
+        //Recuperamos los datos de las preferencias si hay datos guardados
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        nombrePre = preferences.getString("nombre", "");
+        emailPre = preferences.getString("email", "");
+        nacimeintoPre = preferences.getString("nacimiento", "");
+        nombre.setText(nombrePre);
+        email.setText(emailPre);
+        fechaNacimiento.setText(nacimeintoPre);
     }
 
     /**
@@ -56,7 +71,6 @@ public class RegistroActivity extends AppCompatActivity implements DatePickerDia
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         fechaNacimiento.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-
     }
 
     /**
@@ -91,7 +105,7 @@ public class RegistroActivity extends AppCompatActivity implements DatePickerDia
                     Toast.makeText(this, getResources().getText(R.string.toast_mayor_de_edad), Toast.LENGTH_LONG).show();
                 }
             } catch (ParseException e) {
-                e.printStackTrace();
+                Toast.makeText(this, getResources().getText(R.string.toast_error_fecha_nacimiento), Toast.LENGTH_LONG).show();
             }
         }
     }

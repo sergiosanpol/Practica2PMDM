@@ -1,6 +1,8 @@
 package com.pmdm.diurno.practica2pmdm.Activitys;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean registrado;
 
     private TextView apuesta;
+    private SharedPreferences preferences;
     public static String apuestaMarcada;
 
     @Override
@@ -40,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
         registrado = false;
         apuesta = (TextView) findViewById(R.id.tv_apuestaMarcada);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        apuestaMarcada = preferences.getString("deporte", "");
     }
 
     /**
@@ -80,6 +87,16 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, getResources().getText(R.string.toast_Marcar_apuestas), Toast.LENGTH_LONG).show();
         }
+    }
+
+    /**
+     * Método que responde al boton resultados
+     * @param v
+     */
+    public void abrirResultados(View v){
+        Intent result = new Intent(this, ResultadosAcivity.class);
+        result.putExtra("DEPORTE", apuestaMarcada);
+        startActivity(result);
     }
 
     /**
@@ -132,6 +149,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, AyudaActivity.class));
         }else if(id == R.id.item_acercaDe){
             startActivity(new Intent(this, AcercaDeActivity.class));
+        }else if(id == R.id.item_preferencias){
+            startActivity(new Intent(this, PreferenciasActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

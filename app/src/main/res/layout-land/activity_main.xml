@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.pmdm.diurno.practica2pmdm.Activitys.MainActivity" >
 
     <TextView
         android:id="@+id/tv_tituloApuestas"
@@ -61,10 +62,11 @@
                 android:text="@string/btn_ajustes" />
 
             <Button
-                android:id="@+id/btn_sorteo"
+                android:id="@+id/btn_resultados"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_sorteo" />
+                android:onClick="abrirResultados"
+                android:text="@string/btn_resultados" />
         </TableRow>
 
     </TableLayout>
