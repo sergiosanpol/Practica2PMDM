@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
                 if(apuesta.getVisibility() ==  View.GONE){
                     apuesta.setVisibility(View.VISIBLE);
                 }
-                //Mostramos la apuesta realizada en la pantalla principal
-
+                //Mostramos la apuesta predeterminada en las preferencias si existiera una seleccionaa
+                apuestaMarcada = preferences.getString("deporte", "");
                 apuesta.setText(getResources().getText(R.string.apuesta_marcada) + apuestaMarcada);
             }
         //Cuando accedemos a la apuesta y nos devuelve un resultado OK

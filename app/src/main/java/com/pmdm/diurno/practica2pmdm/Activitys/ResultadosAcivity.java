@@ -1,16 +1,12 @@
 package com.pmdm.diurno.practica2pmdm.Activitys;
 
-import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -116,24 +112,30 @@ public class ResultadosAcivity extends AppCompatActivity {
 
         equipo1 = (TextView) findViewById(R.id.equipoJugador1);
         equipo2 = (TextView) findViewById(R.id.equipoJugador2);
-        resultado1 = (TextView) findViewById(R.id.resultado1);
-        resultado2 = (TextView) findViewById(R.id.resultado2);
+        resultado1 = (TextView) findViewById(R.id.resultado1Nuevo);
+        resultado2 = (TextView) findViewById(R.id.resultado2Nuevo);
 
-        try {
-            //Encapsulamos los datos en el objeto del partido
-            partido = new Partido(equipo1.getText().toString(), equipo2.getText().toString(),
-                    Integer.parseInt(resultado1.getText().toString()),
-                    Integer.parseInt(resultado2.getText().toString()),
-                    spinner.getSelectedItem().toString());
+        //Comprobar que los datos están rellenos
+        if(!equipo1.getText().toString().equals("") && !equipo2.getText().toString().equals("") &&
+                !resultado1.getText().toString().equals("") && !resultado2.getText().toString().equals("")) {
+            try {
+                //Encapsulamos los datos en el objeto del partido
+                partido = new Partido(equipo1.getText().toString(), equipo2.getText().toString(),
+                        Integer.parseInt(resultado1.getText().toString()),
+                        Integer.parseInt(resultado2.getText().toString()),
+                        spinner.getSelectedItem().toString());
 
-            //Esperamos una repuesta del método. Si devuelve mayor de 0 se ha insertado la nueva fila
-            if(resultados.annadirResultado(partido)){
-                Toast.makeText(this, getResources().getText(R.string.resultadoAnnadido), Toast.LENGTH_LONG).show();
-            }else{
-                Toast.makeText(this, getResources().getText(R.string.resultadoAnnadido), Toast.LENGTH_LONG).show();
+                //Esperamos una repuesta del método. Si devuelve mayor de 0 se ha insertado la nueva fila
+                if (resultados.annadirResultado(partido)) {
+                    Toast.makeText(this, getResources().getText(R.string.resultadoAnnadido), Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, getResources().getText(R.string.resultadoAnnadido), Toast.LENGTH_LONG).show();
+                }
+            } catch (NumberFormatException e) {
+
             }
-        }catch(NumberFormatException e){
-
+        }else{
+            Toast.makeText(this, getResources().getText(R.string.toast_Falan_datos_por_rellenar), Toast.LENGTH_LONG).show();
         }
     }
 
