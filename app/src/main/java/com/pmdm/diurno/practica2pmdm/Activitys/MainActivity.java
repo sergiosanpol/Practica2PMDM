@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
      * @param v
      */
     public void abrirAjustes(View v){
-        if(apuestaMarcada != null) {
+        if(!apuestaMarcada.equals("") && registrado) {
             //Le pasamos la información sobre la apuesta marcada
             Intent ajustes = new Intent(this, AjustesActivity.class);
             ajustes.putExtra("APUESTA", apuestaMarcada);
@@ -111,6 +111,16 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == CODIGO_REGISTRO && resultCode == RESULT_OK){
             //La variable registro se pone a true indicando que ya nos hemos registrado
             registrado = true;
+            //En caso de que ya hayamos elegido un deporte en preferencias
+            if(!apuestaMarcada.equals("")){
+                //Apuesta está oculto al inicio. Si no ha cambiado de visibilidad se le cambia a visible
+                if(apuesta.getVisibility() ==  View.GONE){
+                    apuesta.setVisibility(View.VISIBLE);
+                }
+                //Mostramos la apuesta realizada en la pantalla principal
+
+                apuesta.setText(getResources().getText(R.string.apuesta_marcada) + apuestaMarcada);
+            }
         //Cuando accedemos a la apuesta y nos devuelve un resultado OK
         }else if(requestCode == CODIGO_APUESTA && resultCode == RESULT_OK){
             //Apuesta está oculto al inicio. Si no ha cambiado de visibilidad se le cambia a visible
